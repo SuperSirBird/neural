@@ -1,12 +1,39 @@
 <input>
 
 <script>
+  var inputs = 3;
+  var outputs = 3;
+  var hiddenlayers = 2;
+  var hiddensynapse = 6;
+  
   var synapse = {}
   var neuron = {}
-  for (i=0;i<4;i++) {
+  for (i=0;i<2+hiddenlayers;i++) {
+    // Define Neuron layer
     neuron["layer" + i] = [];
-    for (var w=0;w<13;w++) {
-      neuron["layer" + i]["v" + w] = "n";
+    
+    // If it is generating a hidden layer
+    if (i != 0 && i != 1+hiddenlayers) {
+      for (var w=0;w<hiddensynapse;w++) {
+        neuron["layer" + i]["v" + w] = "n";
+      }
+    }
+    else {
+      // If making input
+      if (i==0) {
+        for (var w=0;w<inputs;w++) {
+          neuron["layer" + i]["v" + w] = "n";
+        }
+      }
+      
+      // If making output
+      if (i==1+hiddenlayers) {
+        for (var w=0;w<outputs;w++) {
+          neuron["layer" + i]["v" + w] = "n";
+        }
+      }
     }
   }
+  
+  // Done creating network mesh now
 </script>

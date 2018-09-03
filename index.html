@@ -46,7 +46,7 @@
     // Define Synapse Layer
     synapse["layer" + i] = {};
     
-    for (var w=0;w<neuron["layer" + i].length;w++) {
+    for (var w=0;w<Object.keys(neuron["layer" + i]).length;w++) {
       // Define Synapse Layer id with weight and bias
       synapse["layer" + i]["c" + w] = {"w":0.5,"b":0} // Weight bias
     }

@@ -43,8 +43,13 @@
   // Done creating neuron mesh now create synapse connections
   
   for (i=0;i<1+hiddenlayers;i++) {
-    // Define Neuron layer
+    // Define Synapse Layer
     synapse["layer" + i] = {};
+    
+    for (var w=0;w<neural["layer" + i].length;w++) {
+      // Define Synapse Layer id with weight and bias
+      synapse["layer" + i]["c" + w] = {"w":0.5,b:0}
+    }
 
   }
 </script>

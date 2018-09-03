@@ -1,6 +1,8 @@
 <input>
 
 <script>
+  // Setup
+  
   var inputs = 3;
   var outputs = 3;
   var hiddenlayers = 2;
@@ -8,6 +10,7 @@
   
   var synapse = {}
   var neuron = {}
+  var store = {}
   
   // Create Neurons
   for (i=0;i<2+hiddenlayers;i++) {
@@ -38,4 +41,10 @@
   }
   
   // Done creating neuron mesh now create synapse connections
+  
+  for (i=0;i<1+hiddenlayers;i++) {
+    // Define Neuron layer
+    synapse["layer" + i] = {};
+
+  }
 </script>

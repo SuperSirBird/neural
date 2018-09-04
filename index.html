@@ -15,7 +15,7 @@
   // Create Neurons
   for (i=0;i<2+hiddenlayers;i++) {
     // Define Neuron layer
-    neuron["layer" + i] = [];
+    neuron["layer" + i] = {};
     
     // If it is generating a hidden layer
     if (i != 0 && i != 1+hiddenlayers) {
@@ -47,9 +47,15 @@
     synapse["layer" + i] = {};
     
     for (var w=0;w<Object.keys(neuron["layer" + i]).length;w++) {
-      // Define Synapse Layer id with weight and bias
-      synapse["layer" + i]["c" + w] = {"w":0.5,"b":0} // Weight bias
+      // Define Synapses from start of node
+      synapse["layer" + i]["n" + w] = []
+      for (var c = 0;c<Object.keys(neuron["layer" + (i+1)]).length) { // Create synapses from the start node to all points on next level
+        synapse["layer" + i]["n" + w][c] = {"w":0,"b":0} // Weight, Bias
+      }
     }
 
   }
+  
+  // Get synapses by: synapse["layer<layerId>"]["n<node id on layer>"][<connection-to>]
+  // Get neurons by: neuron["layer<layerId>"]["v<node id on layer>"]
 </script>

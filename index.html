@@ -41,20 +41,20 @@
   }
   
   // Done creating neuron mesh now create synapse connections
-  /*
+  
   for (i=0;i<1+hiddenlayers;i++) {
     // Define Synapse Layer
     synapse["layer" + i] = {};
     
       for (var c = 0;c<Object.keys(neuron["layer" + i]).length;c++) { // Create synapses from the start node to all points on next level
-        for (var d = 0;c<Object.keys(neuron["layer" + (i+1)]).length;d++) { // All points
+        for (var d = 0;d<Object.keys(neuron["layer" + (i+1)]).length;d++) { // All points
           synapse["layer" + i]["n" + c + "n" + d] = {"w":0.5,"b":0} // Weight, Bias
         }
       }
     }
   
-  // Get synapses by: synapse["layer<layerId>"]["n<node id on layer>"][<connection-from><connection-to>] (will return weight and bias)
+  // Get synapses by: synapse["layer<layerId>"][n<connection-from>n<connection-to>] (will return weight and bias)
   // Get neurons by: neuron["layer<layerId>"]["v<node id on layer>"]
-  */
+  
   
 </script>

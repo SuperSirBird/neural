@@ -48,9 +48,9 @@
     
     for (var w=0;w<Object.keys(neuron["layer" + i]).length;w++) {
       // Define Synapses from start of node
-      synapse["layer" + i]["n" + w] = []
       for (var c = 0;c<Object.keys(neuron["layer" + i]).length;c++) { // Create synapses from the start node to all points on next level
         for (var d = 0;c<Object.keys(neuron["layer" + (i+1)]).length;d++) { // All points
+          synapse["layer" + i]["n" + w + "n" + d] = [] // Weight, Bias
           synapse["layer" + i]["n" + w + "n" + d][c] = {"w":0.5,"b":0} // Weight, Bias
         }
       }

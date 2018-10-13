@@ -67,7 +67,9 @@
   */
   
   function evalnet() {
-    for (var i=0;i<hiddenlayers+1;i++) {
+    for (var i=1;i<hiddenlayers+2;i++) { // i = 1 because we start at evaluating layer 1 reather than the input
+      for (var w = 0; w<Object.keys(synapse["layer" + i])) {
+      }
     }
   }
   

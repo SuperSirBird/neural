@@ -1,7 +1,9 @@
 <input>
 
 <script>
-  // Setup
+  /*
+  Setup Variables
+  */
   
   var inputs = 3;
   var outputs = 3;
@@ -11,6 +13,10 @@
   var synapse = {}
   var neuron = {}
   var store = {}
+  
+  /*
+  Create the Network 
+  */
   
   // Create Neurons
   for (i=0;i<2+hiddenlayers;i++) {
@@ -56,5 +62,13 @@
   // Get synapses by: synapse["layer<layerId>"][n<connection-from>n<connection-to>] (will return weight and bias)
   // Get neurons by: neuron["layer<layerId>"]["v<node id on layer>"]
   
+  /*
+  Evaluate
+  */
+  
+  function evalnet() {
+    for (var i=0;i<hiddenlayers+1;i++) {
+    }
+  }
   
 </script>

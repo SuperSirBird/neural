@@ -26,21 +26,21 @@
     // If it is generating a hidden layer
     if (i != 0 && i != 1+hiddenlayers) {
       for (var w=0;w<hiddensynapse;w++) {
-        neuron["layer" + i]["v" + w] = "n";
+        neuron["layer" + i]["v" + w] = "0";
       }
     }
     else {
       // If making input
       if (i==0) {
         for (var w=0;w<inputs;w++) {
-          neuron["layer" + i]["v" + w] = "n";
+          neuron["layer" + i]["v" + w] = "0";
         }
       }
       
       // If making output
       if (i==1+hiddenlayers) {
         for (var w=0;w<outputs;w++) {
-          neuron["layer" + i]["v" + w] = "n";
+          neuron["layer" + i]["v" + w] = "0";
         }
       }
     }
@@ -69,9 +69,11 @@
   function evalnet() {
     for (var i=0;i<hiddenlayers+1;i++) { // i = 1 because we start at evaluating layer 1 reather than the input
       for (var w = 0; w<Object.keys(synapse["layer" + i]).length;w++) {
+        var firstid = Object.keys(synapse["layer" + i])[w].substring(1,2)
+        var secndid = Object.keys(synapse["layer" + i])[w].substring(3)
         var firstlayer = neuron["layer" + i]["v"+Object.keys(synapse["layer" + i])[w].substring(1,2)]
-        var secndlayer = neuron["layer" + i]["v" +Object.keys(synapse["layer" + 0])[w].substring(3)]
-        secndlayer = (firstlayer*(synapse["layer" + i]["n" + firstlayer + "n" + secndlayer]["w"]))+synapse["layer" + i]["n" + firstlayer + "n" + secndlayer]["b"]
+        var secndlayer = neuron["layer" + i]["v" +Object.keys(synapse["layer" + i])[w].substring(3)]
+        secndlayer = (firstlayer*(synapse["layer" + i]["n" + firstid  + "n" + secndid]["w"]))+synapse["layer" + i]["n" + firstid + "n" + secndid]["b"]
       }
     }
   }

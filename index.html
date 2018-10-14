@@ -72,7 +72,7 @@
         var firstid = Object.keys(synapse["layer" + i])[w].substring(1,2)
         var secndid = Object.keys(synapse["layer" + i])[w].substring(3)
         var firstlayer = neuron["layer" + i]["v"+Object.keys(synapse["layer" + i])[w].substring(1,2)]
-        var secndlayer = neuron["layer" + i]["v" +Object.keys(synapse["layer" + i])[w].substring(3)]
+        var secndlayer = neuron["layer" + i+1]["v" +Object.keys(synapse["layer" + i])[w].substring(3)]
         secndlayer = (firstlayer*(synapse["layer" + i]["n" + firstid  + "n" + secndid]["w"]))+synapse["layer" + i]["n" + firstid + "n" + secndid]["b"]
       }
     }
